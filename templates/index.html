@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    body {
+        margin: 20px;
+        align-content: center;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    p {
+        margin: 10px 0 0 0;
+    }
+    .register {
+        display: inline-block;
+        margin-right: 200px;
+    }
+    .login {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .button {
+        margin-top: 20px;
+        display: block;
+    }
+</style>
+
+<body>
+    <h1>Login and Registration</h1>
+    {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    {% endwith %}
+    <form class="register" action="/register" method="POST"> 
+        <div >
+            <h2>Register here!</h2>
+            <p>First name:</p>
+            <input name="first_name" type="text">
+            <p>Last name:</p>
+            <input name="last_name" type="text">
+            <p>Email:</p>
+            <input name="email" type="text">
+            <p>Password:</p>
+            <input name="password" type="password">
+            <p>Confirm password:</p>
+            <input name="confirmed" type="password">
+            <div class="button">
+                <button class="btn btn-success">Register</button>
+            </div>
+        </div>
+    </form>
+
+    <form class="login"action="/login" method="POST">
+        <div>
+            <h2>Login here!</h2>
+            <p>Email:</p>
+            <input name="email" type="text">
+            <p>Password:</p>
+            <input name="password" type="password">
+            <div class="button">
+                <button class="btn btn-success">Login</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
